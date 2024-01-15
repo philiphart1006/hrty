@@ -2,6 +2,8 @@
 import { Outlet, useNavigation} from 'react-router-dom'
 
 // * Components
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 
 // * Function
 function App() {
@@ -10,18 +12,19 @@ function App() {
 // * JSX
   return (
     <>
-      <h1>HRTy</h1>
+      <Header/>
       <main>
         {
           navigation.state === 'idle'
           ?
-          <Outley />
+          <Outlet />
           :
           <h2>
             Loading...
           </h2>
         }
       </main>
+      <Footer/>
     </>
   )
 }

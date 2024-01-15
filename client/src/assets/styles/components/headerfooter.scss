@@ -1,0 +1,21 @@
+header, footer {
+  background-color: $oxford-blue;
+  color: $vivid-sky-blue;
+  @include flex(row, space-between);
+  margin: 0;
+  padding: $standard-padding;
+  img {
+    height: calc(6*$standard-padding)
+  }
+}
+
+header {
+  border-radius: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: calc(100vw - 2*$standard-padding);
+  left: 0
+}

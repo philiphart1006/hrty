@@ -1,0 +1,20 @@
+// * Colour palette (made with: https://coolors.co/image-picker from logo)
+$azure-web: #E1F2F7ff;
+$oxford-blue: #001F35ff;
+$caribbean-current: #066478ff;
+$white: #FFFFFFff;
+$slate-gray: #6B8182ff;
+$indigo-dye: #043A50ff;
+$mantis: #7FC55Aff;
+$vivid-sky-blue: #3DCDFFff;
+
+// * Sizes
+$standard-padding: 8px;
+$standard-font-size: 2 * $standard-padding;
+
+// * Mix-ins
+@mixin flex($direction, $justify){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
