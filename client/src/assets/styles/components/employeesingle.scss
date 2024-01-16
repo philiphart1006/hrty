@@ -1,0 +1,28 @@
+.employeeSingle{
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  width: calc(100vw - 8*$standard-padding);
+  height: calc(100vh - 21*$standard-padding);
+  padding: 2*$standard-padding;
+  *{
+    width: 100%
+  }
+}
+
+.employeeuLHS{
+  @include flex(row, space-between);
+  *{
+    width: 50%;
+    text-align: center;
+  }
+  img{
+    max-height: 150px;
+    max-width: 150px;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.employeelLHS{
+  background-color: $slate-gray;
+}

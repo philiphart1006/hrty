@@ -20,9 +20,10 @@ class User(AbstractUser):
     null = True
   )
   softwares = models.ManyToManyField(
-    to='users.User',
-    related_name='users'
+    to='softwares.Software',
+    related_name='users',
+    null=True
   )
 
   def __str__(self):
-    return f'{self.first_name} {self.last_name}'
+    return f'{self.username} - {self.first_name} {self.last_name}'

@@ -1,0 +1,266 @@
+[
+  {
+    "model": "users.user",
+    "pk":4,
+    "fields": {
+      "username": "dschooner",
+      "email": "dschooner@example.com",
+      "first_name": "Dr.",
+      "last_name": "Schooner",
+      "status": "notice",
+      "join_date": "2024-04-18",
+      "manager": 3,
+      "team": 6,
+      "softwares": [1, 11, 19, 8, 16]
+  }},
+  {
+"model": "users.user",
+"pk":5,
+"fields": {
+      "username": "mbean",
+      "email": "mbean@example.com",
+      "first_name": "Mr.",
+      "last_name": "Bean",
+      "status": "notice",
+      "join_date": "2023-04-05",
+      "manager": 4,
+      "team": 4,
+      "softwares": [5, 2, 17, 10, 15]
+  }},
+  {
+"model": "users.user",
+"pk":6,
+"fields": {
+      "username": "jenglish",
+      "email": "jenglish@example.com",
+      "first_name": "Johnny",
+      "last_name": "English",
+      "status": "onboarding",
+      "join_date": "2024-11-06",
+      "manager": 5,
+      "team": 5,
+      "softwares": [20, 4, 15, 10, 7]
+  }},
+  {
+"model": "users.user",
+"pk":7,
+"fields": {
+      "username": "epollini",
+      "email": "epollini@example.com",
+      "first_name": "Enrico",
+      "last_name": "Pollini",
+      "status": "notice",
+      "join_date": "2024-11-20",
+      "manager": 5,
+      "team": 2,
+      "softwares": [14, 15, 18, 1, 17]
+  }},
+  {
+"model": "users.user",
+"pk":8,
+"fields": {
+      "username": "emondavarious",
+      "email": "emondavarious@example.com",
+      "first_name": "Emile",
+      "last_name": "Mondavarious",
+      "status": "onboarding",
+      "join_date": "2024-01-14",
+      "manager": 7,
+      "team": 2,
+      "softwares": [17, 16, 20, 14, 18]
+      }},
+      {
+"model": "users.user",
+"pk":9,
+"fields": {
+      "username": "eblackadder",
+      "email": "eblackadder@example.com",
+      "first_name": "Edmund",
+      "last_name": "Blackadder",
+      "status": "notice",
+      "join_date": "2023-07-05",
+      "manager": 7,
+      "team": 3,
+      "softwares": [10, 13, 6, 4, 3]
+      }},
+      {
+"model": "users.user",
+"pk":10,
+"fields": {
+       
+      "username": "tmcinnernysunderling",
+      "email": "tmcinnernysunderling@example.com",
+      "first_name": "Tim",
+      "last_name": "McInnerny's Underling",
+      "status": "onboarding",
+      "join_date": "2023-09-24",
+      "manager": 5,
+      "team": 4,
+      "softwares": [12, 16, 11, 8, 19]
+      }},
+      {
+"model": "users.user",
+"pk":12,
+"fields": {
+           
+          "username": "iraymondfowler",
+          "email": "iraymondfowler@example.com",
+          "first_name": "Inspector",
+          "last_name": "Raymond Fowler",
+          "status": "onboarding",
+          "join_date": "2023-02-28",
+          "manager": 4,
+          "team": 4,
+          "softwares": [9, 8, 2, 11, 10]
+      }},
+      {
+"model": "users.user",
+"pk":13,
+"fields": {
+           
+          "username": "mstringer",
+          "email": "mstringer@example.com",
+          "first_name": "Mr.",
+          "last_name": "Stringer",
+          "status": "left",
+          "join_date": "2024-11-26",
+          "manager": 4,
+          "team": 6,
+          "softwares": [12, 17, 16, 11, 9]
+      }},
+      {
+"model": "users.user",
+"pk":14,
+"fields": {
+           
+          "username": "vofthedoctor",
+          "email": "vofthedoctor@example.com",
+          "first_name": "Voice",
+          "last_name": "Of The Doctor",
+          "status": "active",
+          "join_date": "2023-03-12",
+          "manager": 6,
+          "team": 5,
+          "softwares": [5, 7, 2, 18, 14]
+      }},
+      {
+"model": "users.user",
+"pk":15,
+"fields": {
+         
+        "username": "mhardcastle",
+        "email": "mhardcastle@example.com",
+        "first_name": "Mr.",
+        "last_name": "Hardcastle",
+        "status": "active",
+        "join_date": "2023-06-21",
+        "manager": 7,
+        "team": 4,
+        "softwares": [3, 8, 11, 16, 20]
+        }},
+        {
+"model": "users.user",
+"pk":16,
+"fields": {
+         
+        "username": "ceblackadder",
+        "email": "ceblackadder@example.com",
+        "first_name": "Captain",
+        "last_name": "Edmund Blackadder",
+        "status": "left",
+        "join_date": "2023-12-10",
+        "manager": 8,
+        "team": 2,
+        "softwares": [4, 10, 15, 17, 19]
+        }},
+        {
+"model": "users.user",
+"pk":17,
+"fields": {
+         
+        "username": "lblackadder",
+        "email": "lblackadder@example.com",
+        "first_name": "Lord",
+        "last_name": "Blackadder",
+        "status": "notice",
+        "join_date": "2024-02-27",
+        "manager": 5,
+        "team": 3,
+        "softwares": [6, 12, 13, 18, 20]
+        }},
+        {
+"model": "users.user",
+"pk":18,
+"fields": {
+         
+        "username": "cbe",
+        "email": "cbe@example.com",
+        "first_name": "CBE",
+        "last_name": "",
+        "status": "onboarding",
+        "join_date": "2023-11-15",
+        "manager": 3,
+        "team": 5,
+        "softwares": [1, 9, 14, 17, 19]
+      }},
+      {
+"model": "users.user",
+"pk":19,
+"fields": {
+           
+          "username": "iraymond fowler",
+          "email": "iraymond fowler@example.com",
+          "first_name": "Inspector",
+          "last_name": "Raymond Fowler",
+          "status": "active",
+          "join_date": "2023-01-27",
+          "manager": 3,
+          "team": 3,
+          "softwares": [7, 11, 13, 16, 8]
+      }},
+      {
+"model": "users.user",
+"pk":21,
+"fields": {
+           
+          "username": "z",
+          "email": "z@example.com",
+          "first_name": "Zazu",
+          "last_name": "",
+          "status": "left",
+          "join_date": "2023-04-14",
+          "manager": 4,
+          "team": 6,
+          "softwares": [12, 14, 1, 11, 16]
+      }},
+      {
+"model": "users.user",
+"pk":22,
+"fields": {
+           
+          "username": "rwalter goodfellow",
+          "email": "rwalter goodfellow@example.com",
+          "first_name": "Reverend",
+          "last_name": "Walter Goodfellow",
+          "status": "notice",
+          "join_date": "2023-07-28",
+          "manager": 6,
+          "team": 6,
+          "softwares": [11, 13, 9, 16, 6]
+      }},
+      {
+"model": "users.user",
+"pk":23,
+"fields": {
+           
+          "username": "dlangley",
+          "email": "dlangley@example.com",
+          "first_name": "David",
+          "last_name": "Langley",
+          "status": "notice",
+          "join_date": "2024-10-10",
+          "manager": 8,
+          "team": 5,
+          "softwares": [15, 20, 18, 2, 1]
+      }}
+]

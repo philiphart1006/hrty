@@ -1,0 +1,25 @@
+[
+  { "model": "teams.team", 
+    "pk": 2, 
+    "fields": { "name": "HR", "manager": 3, "description": "The Guardians of the Gateway: HR, the folks who hired you (and can un-hire you). They're like the wise elders, but with more paperwork and less mystic powers. They help you navigate the maze of company policies, benefits, and that thing called 'professional development'. If you ever wonder about the mysteries of your paycheck or why 'casual Friday' doesn't include pajamas, they are your go-to oracle." } },
+  {
+    "model": "teams.team",
+    "pk": 3,
+    "fields": { "name": "Engineering", "manager": 3, "description": "The Wizards of the Tech Realm: Our engineers turn coffee into code, magically transforming abstract ideas into digital reality. They speak in tongues (Python, Java, C++) and can often be found in heated debates about spaces vs tabs. Their natural habitat is a landscape of multiple monitors, where they create the digital tools and toys that make our business go ‘beep’ and ‘boop’."}
+  },
+  {
+    "model": "teams.team",
+    "pk": 4,
+    "fields": { "name": "Sales", "manager": 3, "description": "The Smooth Talkers: Sales, the charming warriors armed with phones and charm. They could sell ice to Eskimos and software to people who still use fax machines. Masters of the art of persuasion, they traverse the wild terrain of leads and prospects, returning victorious with contracts and handshakes. Remember, if you hear cheering from their corner, it's just another deal closed or another coffee machine conquered."}
+  },
+  {
+    "model": "teams.team",
+    "pk": 5,
+    "fields": { "name": "Support", "manager": 3, "description": "The Unsung Heroes: Ever ready to dive into the trenches at the faintest cry of 'help!', our support team is the tech whisperer for customers and the internal lifesaver for the rest of us. They're like tech therapists, calmly navigating through the storm of 'Have you tried turning it off and on again?' Spoiler: They know the problem is usually the unplugged router." }
+  },
+  {
+    "model": "teams.team",
+    "pk": 6,
+    "fields": { "name": "Finance", "manager": 3, "description": "The Keepers of the Coin: In the mystical land of spreadsheets and budget forecasts, the finance team reigns supreme. They speak in the ancient tongue of numbers and are known to perform alchemy with balance sheets. Approach them with your expense reports and witness their power to approve or deny with the stroke of a pen. They guard the treasure chest and remind us that 'No, the company card is not for buying a personal llama farm.'" }
+  }
+]

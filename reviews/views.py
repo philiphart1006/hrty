@@ -1,12 +1,12 @@
 from .serializers.common import ReviewSerializer
-from rest_framework.generics import CreateAPIView, DestroyAPIView
+from rest_framework.generics import ListCreateAPIView, DestroyAPIView
 from .models import Review
 
 # Create your views here.
 
 # Path /reviews/
 # Methods: GET, POST
-class ReviewCreateView(CreateAPIView):
+class ReviewCreateListView(ListCreateAPIView):
   queryset = Review.objects.all()
   serializer_class = ReviewSerializer
 

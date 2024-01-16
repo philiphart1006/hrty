@@ -1,4 +1,4 @@
-// ! Imports
+// & Imports
 // * Packages
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -15,6 +15,10 @@ import EmployeeIndex from './components/EmployeeIndex.jsx'
 import Register from './components/Register.jsx'
 import Login from './components/Login.jsx'
 
+// * Actions & Loaders
+import { getEmployees, getSingleEmployee } from './utils/loaders/employees.js'
+import { registerUser, loginUser } from './utils/actions/auth.js'
+
 
 const router = createBrowserRouter([
   {
@@ -29,22 +33,22 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
-        // action: async ({ request }) => registerUser(request)
+        action: async ({ request }) => registerUser(request)
       },
       {
         path: '/login',
         element: <Login />,
-        // action: async ({ request }) => loginUser(request)
+        action: async ({ request }) => loginUser(request)
       },
       {
         path: '/employees',
         element: <EmployeeIndex />,
-        // loader: async ({ request }) => loginUser(request)
+        loader: getEmployees
       },
       {
         path: '/employees/:employeeId',
         element: <EmployeeSingle />,
-        action: async ({ request }) => loginUser(request)
+        loader: async ({params }) => getSingleEmployee(params.employeeId)
       },
       {
         path: '/employees/:employeeId/edit',

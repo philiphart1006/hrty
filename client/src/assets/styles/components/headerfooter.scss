@@ -1,7 +1,9 @@
+
 header, footer {
   background-color: $oxford-blue;
   color: $vivid-sky-blue;
   @include flex(row, space-between);
+  align-items: center;
   margin: 0;
   padding: $standard-padding;
   img {
@@ -11,6 +13,19 @@ header, footer {
 
 header {
   border-radius: 20px;
+
+  div {
+    @include flex(row, space-between);
+  }
+
+  nav * {
+    padding: $standard-padding;
+
+    a{
+      color: $vivid-sky-blue;
+      text-decoration: none;
+    }
+  }
 }
 
 footer {
@@ -18,4 +33,22 @@ footer {
   bottom: 0px;
   width: calc(100vw - 2*$standard-padding);
   left: 0
+}
+.narrow-mode{
+  display: none !important;
+}
+
+// Set breakpoint for smaller than a landscape table at 768px
+@media only screen and (max-width: 768px) {
+  footer {
+    @include flex(column, space-around)
+  }
+
+  .wide-mode{
+    display: none
+  }
+
+  .narrow-mode{
+    display: inline !important;
+  }
 }
