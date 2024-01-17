@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 # from ..models import User
 
 User = get_user_model()
@@ -35,4 +36,19 @@ class UserSerializer(serializers.ModelSerializer):
 class ReducedUserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ('username', 'first_name', 'last_name')
+    fields = ('id', 'username', 'first_name', 'last_name')
+
+# class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+#   @classmethod
+#   def get_token(cls,user):
+#     token = super().get_token(user)
+#     token['name'] = user.username
+#     token['team'] = user.team.name if user.team else "N/A"
+#     return token
+    
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+  def validate(self, attrs):
+    data=super().validate(attrs)
+    data['username']= self.user.username
+    data['team']= self.user.team.name if self.user.team else "N/A"
+    return data

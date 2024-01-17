@@ -12,12 +12,15 @@ import './assets/styles/index.scss'
 import Home from './components/Home.jsx'
 import EmployeeSingle from './components/EmployeeSingle.jsx'
 import EmployeeIndex from './components/EmployeeIndex.jsx'
+import EmployeeEdit from './components/EmployeeEdit.jsx'
 import Register from './components/Register.jsx'
 import Login from './components/Login.jsx'
+import TeamIndex from './components/TeamIndex.jsx'
 
 // * Actions & Loaders
-import { getEmployees, getSingleEmployee } from './utils/loaders/employees.js'
-import { registerUser, loginUser } from './utils/actions/auth.js'
+import { getEmployees, getSingleEmployee, getSingleEditEmployee } from './utils/loaders/employees.js'
+import { registerUser, loginUser, deleteEmployee, updateEmployee } from './utils/actions/auth.js'
+import { getTeams } from './utils/loaders/teams.js'
 
 
 const router = createBrowserRouter([
@@ -25,6 +28,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     errorElement: <App />,
+    id: "parent",
+    loader: getEmployees,
     children: [
       {
         path: '/',
@@ -43,7 +48,8 @@ const router = createBrowserRouter([
       {
         path: '/employees',
         element: <EmployeeIndex />,
-        loader: getEmployees
+        id: "employees",
+        loader: getEmployees,
       },
       {
         path: '/employees/:employeeId',
@@ -51,13 +57,23 @@ const router = createBrowserRouter([
         loader: async ({params }) => getSingleEmployee(params.employeeId)
       },
       {
+        path: '/employees/:employeeId/delete',
+        action: async ({params }) => deleteEmployee(params.employeeId)
+      },
+      {
         path: '/employees/:employeeId/edit',
-        // element: <EmployeeEdit />,
-        // action: async ({ request }) => loginUser(request)
+        element: <EmployeeEdit />,
+        loader: async ({params }) => getSingleEditEmployee(params.employeeId),
+        action: async ({params, request}) => updateEmployee(params.employeeId, request)
       },
       {
         path: '/employees/:employeeId/review',
         // action: async ({ request }) => loginUser(request)
+      },
+      {
+        path: '/teams',
+        element: <TeamIndex />,
+        loader: getTeams,
       },
     ]
   }
