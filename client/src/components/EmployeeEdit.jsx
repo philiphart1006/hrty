@@ -25,12 +25,12 @@ export default function EditEmployee(){
     employeeSoftwareIds.push(employeeSoftware.id)
   })
 
-  console.log(manager)
+  // console.log(manager)
 
   const managersArr = useRouteLoaderData("parent")
-  console.log('managersArr: ', managersArr)
+  // console.log('managersArr: ', managersArr)
   const managersNames = managersArr?.username
-  console.log('managersNames: ', managersNames)
+  // console.log('managersNames: ', managersNames)
 
   // * State
   const [ formData, setFormData ] = useState({
@@ -38,10 +38,9 @@ export default function EditEmployee(){
     last_name: employee.last_name,
     status: employee.status,
     join_date: employee.join_date,
-    manager: manager.id,
-    team: employee.team.id,
+    manager: manager.id.toString(),
+    team: employee.team.id.toString(),
     softwares: employeeSoftwareIds
-    // {softwares.map(software => )}
   })
 
   // * Reformat join date
@@ -54,14 +53,29 @@ export default function EditEmployee(){
     setFormData({ ...formData, [e.target.name]: e.target.value})
   }
 
+
+  // ! Check from here
+  function softwareChange(e){
+    // e.target.checked ? formData.softwares.push(e.target.value) : formData.softwares.remove(e.target.value)
+    if(e.target.checked){
+      formData.softwares.push(e.target.value)
+    } else{
+      const index = formData.softwares.indexOf(e.target.value)
+      index > -1 && formData.softwares.splice(index, 1)
+    } 
+  }
+  // ! To here
+
   // * Handle submission
   async function handleSubmit(e){
+    console.log('Handle submit function reached')
     try {
       console.log(formData)
       e.preventDefault()
       const response = await updateEmployee(formData, employee.id)
       console.log('Form data: ',formData)
       console.log('Response: ',response.status)
+      console.log('Response: ',response.data)
       response?.status === 302 && navigate(`/employees/${employee.id}`)
     } catch (error) {
       console.log(error)
@@ -94,9 +108,6 @@ export default function EditEmployee(){
     })
     }
     </select>
-
-    <label form='softwares'>Softwares:</label>
-    <input type='text' name='softwares' onChange={handleChange} defaultValue={[employee.softwares.name]}/>
     
     <label form='manager'>Manager:</label>
     <select form='manager' onChange={handleChange}>
@@ -110,18 +121,17 @@ export default function EditEmployee(){
     }
     </select>
 
-
+    <label form='softwares'>Softwares:</label>
     {softwares.map(software => {
       const {id, name} = software
       return(
         <div key={id}>
           <label>{name}</label>
-          <input type="checkbox" id={id} name={id} value={id} checked={employeeSoftwareIds.includes(id)} onChange={handleChange}></input>
+          <input type="checkbox" id={id} name={id} value={id} defaultChecked={employeeSoftwareIds.includes(id)} onChange={softwareChange}></input>
         </div>
       )
     })
     }
-   
 
     <button type='submit'>Save</button>
     {res && <p>{res.data.message}</p>}

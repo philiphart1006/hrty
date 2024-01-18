@@ -1,0 +1,102 @@
+[
+  {
+      "model": "hardwares.hardware",
+      "pk": 1,
+      "fields": {
+          "name": "Hoodie",
+          "type": "Cashmere",
+          "value": 1401,
+          "year": 2023
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 2,
+      "fields": {
+          "name": "Monitor",
+          "type": "Wide",
+          "value": 1482,
+          "year": 2023
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 3,
+      "fields": {
+          "name": "Keyboard",
+          "type": "Mechanical",
+          "value": 267,
+          "year": 2022
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 4,
+      "fields": {
+          "name": "Laptop",
+          "type": "Mac",
+          "value": 1091,
+          "year": 2023
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 5,
+      "fields": {
+          "name": "Monitor",
+          "type": "Wide",
+          "value": 1923,
+          "year": 2022
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 6,
+      "fields": {
+          "name": "Headset",
+          "type": "Bluetooth",
+          "value": 805,
+          "year": 2022
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 7,
+      "fields": {
+          "name": "Monitor",
+          "type": "Standard",
+          "value": 1412,
+          "year": 2023
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 8,
+      "fields": {
+          "name": "Laptop",
+          "type": "Windows",
+          "value": 1587,
+          "year": 2022
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 9,
+      "fields": {
+          "name": "Laptop",
+          "type": "Windows",
+          "value": 773,
+          "year": 2023
+      }
+  },
+  {
+      "model": "hardwares.hardware",
+      "pk": 10,
+      "fields": {
+          "name": "Monitor",
+          "type": "Wide",
+          "value": 1663,
+          "year": 2023
+      }
+  }
+]

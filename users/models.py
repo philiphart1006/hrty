@@ -24,6 +24,11 @@ class User(AbstractUser):
     related_name='users',
     null=True
   )
+  hardwares = models.ManyToManyField(
+    to='hardwares.Hardware',
+    related_name='users',
+    null=True
+  )
 
   def __str__(self):
     return f'{self.username} - {self.first_name} {self.last_name}'

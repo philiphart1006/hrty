@@ -22,3 +22,7 @@ class EmployeeListView(ListAPIView):
 class CustomLoginView(TokenObtainPairView):
   queryset = User.objects.all()
   serializer_class = CustomTokenObtainPairSerializer
+
+class UpdateView(RetrieveUpdateDestroyAPIView):
+  queryset = User.objects.all()
+  serializer_class = UserSerializer

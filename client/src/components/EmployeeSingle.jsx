@@ -12,9 +12,33 @@ import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPane
 export default function EmployeeSingle(){
 
   const employee = useLoaderData()
-  const { id, username, first_name, last_name, team, manager, status, join_date, softwares, reviews_received } = employee
+  const { id, username, first_name, last_name, team, manager, status, join_date, softwares, reviews_received, hardwares } = employee
   const manager_name = manager ? manager.username : "No manager"
-  console.log(employee)
+
+  // * Sort reviews by quarter then year:
+  function compare( a, b ) {
+    if ( a.quarter < b.quarter ){
+      return -1;
+    }
+    if ( a.quarter > b.quarter ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  const reviews_sorted = reviews_received.sort( compare );
+
+  function compareYear( a, b ) {
+    if ( a.year < b.year ){
+      return -1;
+    }
+    if ( a.year > b.year ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  const reviews_ordered = reviews_sorted.sort( compareYear );
 
   return(
     <section className='employeeSingle'>
@@ -69,7 +93,7 @@ export default function EmployeeSingle(){
           {/* Employee reviews go here; use Chakra element */}
           <h1> Employee Reviews</h1>
           <Accordion>
-            {reviews_received.map(review => {
+            {reviews_ordered.map(review => {
             return(
               <AccordionItem className='softwareContainer' key={review.id}>
                 <h2>
@@ -93,6 +117,17 @@ export default function EmployeeSingle(){
         <section className='employeelRHS'>
           {/* Employee hardwares go here */}
           <h1>Company hardware</h1>
+          <SimpleGrid minChildWidth='80px' spacing='40px'>
+            {hardwares.map(hardware => {
+              return(
+                <div className='softwareContainer' key={hardware.name}>
+                  <p>{hardware.name} - {hardware.type}</p>
+                  <p>£{hardware.value}</p>
+                </div>
+              )
+            })
+            }
+        </SimpleGrid>
         </section>
       </section>
   )
