@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
+import django_on_heroku
+
 import os
 
 from pathlib import Path
@@ -160,3 +163,5 @@ SIMPLE_JWT = {
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'client', "dist"),
 )
+
+django_on_heroku.settings(locals())

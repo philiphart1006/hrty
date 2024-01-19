@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 pylint = "*"
 django-environ = "*"
 djangorestframework-simplejwt = "*"
+django-on-heroku = "*"
 
 [dev-packages]
 
