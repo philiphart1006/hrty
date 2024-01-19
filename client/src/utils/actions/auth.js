@@ -17,7 +17,7 @@ export async function loginUser(request) {
 }
 
 export async function deleteEmployee(id){
-  await axios.delete(`/api/employees/${id}`, {
+  await axios.delete(`/api/employees/${id}/`, {
     validateStatus: () => true,
   })
   return redirect('/employees')
