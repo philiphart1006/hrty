@@ -10,6 +10,7 @@ export function setToken(token){
   localStorage.setItem(tokenName, token)
 }
 
-export function getToken(token){
-  localStorage.getItem(tokenName, token)
+export function getToken(){
+  console.log('Get token route hit')
+  return localStorage.getItem(tokenName)
 }

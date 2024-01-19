@@ -62,7 +62,7 @@ export default function AllReviews(){
           <input type='number' name='quarter' defaultValue={currentQuarter} placeholder={currentQuarter} />
           <input type='number' name='rating' min={1} max={5}/>
           <input type='text' name='summary' />
-          <input type='text' name='owner' value={currentUser ? currentUser : 3} hidden readOnly />
+          {/* <input type='text' name='owner' value={currentUser ? currentUser : 3} hidden readOnly /> */}
           <label form='employee'>Employee:</label>
           <select name='employee' onChange={handleChange} defaultValue={3} placeholder=''>
             {employeesAll.map(employee => {

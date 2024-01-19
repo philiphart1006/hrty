@@ -51,4 +51,6 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     data=super().validate(attrs)
     data['username']= self.user.username
     data['team']= self.user.team.name if self.user.team else "N/A"
+    data['image']= self.user.image
+    data['id']= self.user.id
     return data

@@ -5,7 +5,7 @@ header, footer {
   @include flex(row, space-between);
   align-items: center;
   margin: 0;
-  padding: $standard-padding;
+  padding: $standard-padding 3*$standard-padding;
   img {
     height: calc(6*$standard-padding)
   }
@@ -18,6 +18,10 @@ header {
     @include flex(row, space-between);
   }
 
+  .rhs{
+    align-items: center;
+  }
+
   nav * {
     padding: $standard-padding;
 
@@ -26,16 +30,30 @@ header {
       text-decoration: none;
     }
   }
+
+  img {
+    border-radius: 40px;
+  }
 }
 
 footer {
   position: fixed;
   bottom: 0px;
-  width: calc(100vw - 2*$standard-padding);
-  left: 0
+  width: calc(100vw - 6*$standard-padding);
+  left: 0;
+  padding: $standard-padding 3*$standard-padding
 }
 .narrow-mode{
   display: none !important;
+}
+
+.footerRHS{
+  @include flex(row, justify-content)
+}
+
+a{
+  color: $vivid-sky-blue;
+  text-decoration: none;
 }
 
 // Set breakpoint for smaller than a landscape table at 768px

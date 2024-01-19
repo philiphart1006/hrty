@@ -18,6 +18,7 @@ export default function Login(){
       localStorage.setItem('hrty-username',res.data.username)
       localStorage.setItem('hrty-team',res.data.team)
       localStorage.setItem('hrty-id',res.data.id)
+      localStorage.setItem('hrty-image',res.data.image)
       navigate('/')
     }
   }, [res, navigate])
