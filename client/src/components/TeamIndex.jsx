@@ -17,25 +17,23 @@ export default function AllTeams(){
 
   // * JSX
   return(
-    <section className='displayContainer'>
+    <section className='indexContainer'>
       <SimpleGrid minChildWidth='250px' spacing='40px'>
       {
       teamsAll.map(team => {
         const {id, name, description } = team
         return (
-          <Link to = {`${id}`} key={id}>
-            <Card className="indContainer">
-              <CardHeader>
-                <p>{name}</p>
-              </CardHeader>
-              <CardBody>
-                <img className='team-pic' src={ team.image } alt='team photo'/>
-                <p>{description}</p>
-              </CardBody>
-              <CardFooter>
-              </CardFooter>
-            </Card>
-          </Link>
+          <Card className="indContainer" key={id}>
+            <CardHeader>
+              <h2>{name}</h2>
+            </CardHeader>
+            <CardBody>
+              <img className='team-pic' src={ team.image } alt='team photo'/>
+              <p>{description}</p>
+            </CardBody>
+            <CardFooter>
+            </CardFooter>
+          </Card>
         )
       })
     }

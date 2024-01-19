@@ -27,4 +27,4 @@ class CustomLoginView(TokenObtainPairView):
 class UpdateView(RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  permission_classes = [IsSelfOrReadOnly]
+  # permission_classes = [IsSelfOrReadOnly]

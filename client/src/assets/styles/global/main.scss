@@ -1,0 +1,20 @@
+main{
+  text-align: center;
+  width: calc(100vw - 6px);
+
+  img{
+    max-width: 90vw;
+    max-height: 50vh;
+    border-radius: 30px;
+  }
+}
+
+.homepage{
+  @include flex (row, space-around);
+  margin-top: 4*$standard-padding;
+}
+
+.homepageLHS, .homepageRHS{
+  @include flex (column, space-around);
+  width: 120px;
+}

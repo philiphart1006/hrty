@@ -64,7 +64,7 @@ export default function AllEmployees(){
         const manager_name = manager ? manager.username : "No manager"
         return (
           <Link to = {`${id}`} key={id}>
-            <Card className="indContainer">
+            <Card className="indContainer empContainer">
               <CardHeader>
                 <p>{first_name} {last_name}</p>
               </CardHeader>

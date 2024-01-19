@@ -76,7 +76,8 @@ export default function EditEmployee(){
     try {
       e.preventDefault()
       const response = await updateEmployee(formData, employee.id)
-      response?.status === 200 && navigate(`/employees/${employee.id}`)
+      console.log(response.data)
+      res?.status == 201 && navigate(`/employees/${employee.id}`)
     } catch (error) {
       console.log(error)
     }

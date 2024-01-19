@@ -6,6 +6,9 @@ header, footer {
   align-items: center;
   margin: 0;
   padding: $standard-padding 3*$standard-padding;
+  p{
+    color: $vivid-sky-blue
+  }
   img {
     height: calc(6*$standard-padding)
   }
@@ -13,6 +16,7 @@ header, footer {
 
 header {
   border-radius: 20px;
+  width: calc(100vw - 8*$standard-padding);
 
   div {
     @include flex(row, space-between);

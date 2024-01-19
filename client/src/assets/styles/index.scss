@@ -1,16 +1,20 @@
 // * Global sheets imports
 @import './global/variables.scss';
+@import './global/main.scss';
 
 // * Component sheets imports
 @import './components/headerfooter.scss';
 @import './components/employeesingle.scss';
+@import './components/indices.scss';
 
 // * Universal values
 * {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
   font-size: $standard-font-size;
+  color: $caribbean-current
 }
 
 body {
   background-color: $azure-web;
+  // width: 100vw
 }

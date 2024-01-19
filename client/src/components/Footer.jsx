@@ -12,7 +12,7 @@ export default function Footer(){
   return(
     <footer>
       <div className='footerRHS'>
-      <a href='https://github.com/philiphart1006' target="_blank" rel="noreferrer noopener" className='wide-mode'>Report a bug here</a>
+      <a href='https://github.com/philiphart1006' target="_blank" rel="noreferrer noopener" className='wide-mode'><img className='logo-icon' src={logoBug} alt='bug logo'/>Report a bug here</a>
       </div>
       <div className='footerRHS'>
       <p className='wide-mode'>A Code with Hart Production</p>
