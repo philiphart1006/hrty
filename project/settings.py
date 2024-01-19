@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kes_1_&@py&04eoul#_%ws!iq&irk-9rf@px8zk+a_xb(l42i&'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,7 +87,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'hrty',
+    # 'NAME': 'hrty',
+    'NAME': env('DATABASE_NAME'),
     'USER': 'philiphart1006',
     'PASSWORD': 'JMvwYLTCs63i',
     'HOST': 'ep-wispy-base-29092664.eu-central-1.aws.neon.tech',

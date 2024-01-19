@@ -8,10 +8,10 @@ import { Card, CardHeader, CardBody, CardFooter, Button, SimpleGrid } from '@cha
 import hrtLogo from '../assets/hrt_favi.png'
 
 // * Default function
-export default function AllTeams(){
+export default function AllHardwares(){
 
-  const teamsAll = useLoaderData().data
-  console.log(teamsAll)
+  const hardwaresAll = useLoaderData().data
+  console.log(hardwaresAll)
 
   
 
@@ -20,8 +20,8 @@ export default function AllTeams(){
     <section className='displayContainer'>
       <SimpleGrid minChildWidth='250px' spacing='40px'>
       {
-      teamsAll.map(team => {
-        const {id, name, description } = team
+      hardwaresAll.map(hardware => {
+        const {id, name, value, year, type } = hardware
         return (
           <Link to = {`${id}`} key={id}>
             <Card className="indContainer">
@@ -29,8 +29,9 @@ export default function AllTeams(){
                 <p>{name}</p>
               </CardHeader>
               <CardBody>
-                <img className='team-pic' src={ team.image } alt='team photo'/>
-                <p>{description}</p>
+                <p>Type: {type}</p>
+                <p>Value: £{value}</p>
+                <p>Purchase year: {year}</p>
               </CardBody>
               <CardFooter>
               </CardFooter>

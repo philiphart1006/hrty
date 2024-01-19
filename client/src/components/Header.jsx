@@ -29,11 +29,11 @@ export default function Header(){
       <nav className="header-nav wide-mode">
         <Link to='/teams'>Teams</Link>
         <Link to='/employees'>Employees</Link>
-        <Link to='/hardware'>Equipment</Link>
-        <Link to='/software'>Subscriptions</Link>
+        <Link to='/hardwares'>Equipment</Link>
+        <Link to='/softwares'>Subscriptions</Link>
       </nav>
       <Menu className="header-ham narrow-mode">
-        <MenuButton rightIcon={ChevronDownIcon} className='narrow-mode'>
+        <MenuButton righticon={ChevronDownIcon} className='narrow-mode'>
           Menu
         </MenuButton>
         <MenuList>

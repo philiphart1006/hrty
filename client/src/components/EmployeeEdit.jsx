@@ -3,6 +3,7 @@
 import { useActionData, useLoaderData, useNavigate, useRouteLoaderData } from "react-router-dom";
 import { updateEmployee } from "../utils/actions/auth";
 import { useState } from "react";
+import ImageUploadField from './ImageUpload'
 
 
 // & Default function
@@ -32,15 +33,18 @@ export default function EditEmployee(){
   const managersNames = managersArr?.username
   // console.log('managersNames: ', managersNames)
 
+
+
   // * State
   const [ formData, setFormData ] = useState({
     first_name: employee.first_name,
     last_name: employee.last_name,
     status: employee.status,
     join_date: employee.join_date,
-    manager: manager.id.toString(),
-    team: employee.team.id.toString(),
-    softwares: employeeSoftwareIds
+    manager: employee.manager?.id,
+    team: employee.team?.id,
+    softwares: employeeSoftwareIds,
+    image: employee.ImageUploadField
   })
 
   // * Reformat join date
@@ -70,13 +74,9 @@ export default function EditEmployee(){
   async function handleSubmit(e){
     console.log('Handle submit function reached')
     try {
-      console.log(formData)
       e.preventDefault()
       const response = await updateEmployee(formData, employee.id)
-      console.log('Form data: ',formData)
-      console.log('Response: ',response.status)
-      console.log('Response: ',response.data)
-      response?.status === 302 && navigate(`/employees/${employee.id}`)
+      response?.status === 200 && navigate(`/employees/${employee.id}`)
     } catch (error) {
       console.log(error)
     }
@@ -98,8 +98,8 @@ export default function EditEmployee(){
     <input type='date' name='join_date' onChange={handleChange} defaultValue={joinDateInput}/>
     
     <label form='team'>Team:</label>
-    <select name='team' onChange={handleChange} defaultValue={employee.team} placeholder={employee.team.name}>
-      <option value={employee.team}>{employee.team.name}</option>
+    <select name='team' onChange={handleChange} defaultValue={employee?.team} placeholder={employee.team?.name}>
+      <option value={employee.team}>{employee.team?.name}</option>
       {teams.map(team => {
       const {id, name} = team
       return(
@@ -111,7 +111,7 @@ export default function EditEmployee(){
     
     <label form='manager'>Manager:</label>
     <select form='manager' onChange={handleChange}>
-      <option value={manager?.id}>{manager.username}</option>
+      <option value={employee.manager?.id}>{employee.manager?.username}</option>
     {managersArr.map(manager => {
       const {id, username} = manager
       return(
@@ -132,6 +132,12 @@ export default function EditEmployee(){
       )
     })
     }
+
+    {/* Image upload here */}
+    <div>
+      <label form='imageUpload'>Image Upload:</label>
+      <ImageUploadField setFormData={setFormData} formData={formData} onChange={handleChange} />
+    </div>
 
     <button type='submit'>Save</button>
     {res && <p>{res.data.message}</p>}

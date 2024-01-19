@@ -24,7 +24,7 @@ export default function AllEmployees(){
     const pattern = new RegExp(filters.search, 'i')
     const pattern2 = new RegExp(filters.team, 'i')
     const filteredArr = employeesAll.filter(employee => {
-      return pattern.test(employee.username) && (pattern2.test(employee.team) || filters.team === 'All')
+      return pattern.test(employee.username) && (pattern2.test(employee.team?.name) || filters.team === 'All')
     })
     setEmployeesList(filteredArr)
   }, [employeesAll, filters.search, filters.team])

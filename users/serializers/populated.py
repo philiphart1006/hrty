@@ -7,6 +7,7 @@ from hardwares.serializers.common import HardwareSerializer
 
 class PopulatedUserSerializer(UserSerializer):
   manager = UserSerializer()
+  team = TeamSerializer()
 
 class ExtraPopulatedUserSerializer(UserSerializer):
   manager = ReducedUserSerializer()

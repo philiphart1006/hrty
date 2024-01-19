@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from .serializers.common import UserSerializer, UserCreateSerializer, CustomTokenObtainPairSerializer
 from .serializers.populated import PopulatedUserSerializer, ExtraPopulatedUserSerializer
 from rest_framework_simplejwt.views import ( TokenObtainPairView, TokenRefreshView)
+from lib.permissions import IsSelfOrReadOnly
 
 User = get_user_model()
 
@@ -26,3 +27,4 @@ class CustomLoginView(TokenObtainPairView):
 class UpdateView(RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
+  permission_classes = [IsSelfOrReadOnly]

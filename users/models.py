@@ -7,6 +7,7 @@ class User(AbstractUser):
   last_name = models.CharField(null=True, max_length=255)
   status = models.CharField(null=True, max_length=255)
   join_date = models.DateField(null=True, blank=True)
+  image = models.CharField(null=True)
   manager = models.ForeignKey(
     to = 'users.User',
     related_name='direct_reports',

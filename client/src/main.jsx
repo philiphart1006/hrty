@@ -16,11 +16,15 @@ import EmployeeEdit from './components/EmployeeEdit.jsx'
 import Register from './components/Register.jsx'
 import Login from './components/Login.jsx'
 import TeamIndex from './components/TeamIndex.jsx'
+import SoftwareIndex from './components/SoftwareIndex.jsx'
+import HardwareIndex from './components/HardwareIndex.jsx'
+import ReviewIndex from './components/ReviewIndex.jsx'
 
 // * Actions & Loaders
 import { getEmployees, getSingleEmployee, getSingleEditEmployee } from './utils/loaders/employees.js'
 import { registerUser, loginUser, deleteEmployee, updateEmployee } from './utils/actions/auth.js'
-import { getTeams } from './utils/loaders/teams.js'
+import { getTeams, getHardwares, getSoftwares, getReviews } from './utils/loaders/others.js'
+import { createReview } from './utils/actions/reviews.js'
 
 
 const router = createBrowserRouter([
@@ -54,7 +58,8 @@ const router = createBrowserRouter([
       {
         path: '/employees/:employeeId',
         element: <EmployeeSingle />,
-        loader: async ({params }) => getSingleEmployee(params.employeeId)
+        loader: async ({params }) => getSingleEmployee(params.employeeId),
+        action: async ({ request, params }) => createReview(request, params.employeeId)
       },
       {
         path: '/employees/:employeeId/delete',
@@ -64,16 +69,32 @@ const router = createBrowserRouter([
         path: '/employees/:employeeId/edit',
         element: <EmployeeEdit />,
         loader: async ({params }) => getSingleEditEmployee(params.employeeId),
-        action: async ({params, request}) => updateEmployee(params.employeeId, request)
+        // action: async ({params, request}) => updateEmployee(params.employeeId, request)
       },
-      {
-        path: '/employees/:employeeId/review',
+      // {
+      //   path: '/employees/:employeeId/review',
         // action: async ({ request }) => loginUser(request)
-      },
+      // },
       {
         path: '/teams',
         element: <TeamIndex />,
         loader: getTeams,
+      },
+      {
+        path: '/softwares',
+        element: <SoftwareIndex />,
+        loader: getSoftwares,
+      },
+      {
+        path: '/hardwares',
+        element: <HardwareIndex />,
+        loader: getHardwares,
+      },
+      {
+        path: '/reviews',
+        element: <ReviewIndex />,
+        loader: getReviews,
+        action: async ({request}) => createReview(request)
       },
     ]
   }
