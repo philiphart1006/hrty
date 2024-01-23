@@ -17,7 +17,7 @@ export default function Register(){
 
   return(
     <>
-      <Form method="POST">
+      <Form method="POST" className="register">
         <div>
           <label form='email'></label>
           <input type='email' name='email' placeholder='Email' />

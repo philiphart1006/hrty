@@ -83,7 +83,8 @@ a{
 // Set breakpoint for smaller than a landscape table at 768px
 @media only screen and (max-width: 768px) {
   footer {
-    @include flex(column, space-around)
+    @include flex(column, space-around);
+    width: calc(100vw - 6*$standard-padding);
   }
 
   .wide-mode{

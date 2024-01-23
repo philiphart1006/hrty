@@ -37,6 +37,19 @@ export default function AllEmployees(){
     }
     setFilters(newObj)
   }
+
+  // * Sort employees by image:
+  function compare( a, b ) {
+    if ( a.image < b.image ){
+      return -1;
+    }
+    if ( a.image > b.image ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  // const employees_sorted = employeesList.sort( compare );
   
 
   // * JSX

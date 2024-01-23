@@ -78,7 +78,7 @@ export default function EmployeeSingle(){
         <section className='employeeuRHS' >
         {/* Employee softwares go here */}
         <h1>Employee Software Subscriptions</h1>
-        <SimpleGrid minChildWidth='80px' spacing='40px'>
+        <SimpleGrid minChildWidth='80px' spacing='20px'>
         {softwares.map(software => {
           return(
             <div className='softwareContainer' key={software.name}>
@@ -125,7 +125,7 @@ export default function EmployeeSingle(){
         <section className='employeelRHS'>
           {/* Employee hardwares go here */}
           <h1>Company hardware</h1>
-          <SimpleGrid minChildWidth='80px' spacing='40px'>
+          <SimpleGrid minChildWidth='80px' spacing='20px'>
             {hardwares.map(hardware => {
               return(
                 <div className='softwareContainer' key={hardware.name}>

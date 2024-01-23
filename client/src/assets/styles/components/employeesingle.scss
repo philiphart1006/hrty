@@ -2,7 +2,6 @@
   display: grid;
   grid-template: 1fr 1fr / 2fr 1fr;
   width: calc(100vw - 8*$standard-padding);
-  height: calc(100vh - 21*$standard-padding);
   padding: 2*$standard-padding;
   *{
     width: 100%;
@@ -64,4 +63,45 @@
 .rating-star{
   height: 2*$standard-padding;
   width: 2*$standard-padding;
+}
+
+@media only screen and (max-width: 768px) {
+  .employeeSingle{
+    @include flex(column, space-between)
+  }
+
+  .employeeuLHS{
+    @include flex(column, space-between);
+    align-items: center;
+  }
+
+
+  .employeeButtons{
+    @include flex(column, space-around);
+    *{
+      width: 100px;
+    }
+  }
+
+  .employeeuRHS, .employeelRHS{
+    background-color: $caribbean-current;
+    margin-left: 0;
+    margin-bottom: 3*$standard-padding;
+    border-radius: 10px;;
+    padding: $standard-padding;
+    width: calc(100% - 2*$standard-padding)
+  }
+
+  .employeelLHS{
+    margin-bottom: 3*$standard-padding
+  }
+
+  .employeeBio{
+    width: 80vw;
+    align-self: center;
+    text-align: center;
+    *{
+      width: 80vw;
+    }
+  }
 }
