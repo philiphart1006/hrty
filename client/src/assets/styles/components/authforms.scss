@@ -1,0 +1,12 @@
+.authForm{
+  * {
+    margin: $standard-padding;
+    border-radius: 3px;
+  }
+  button{
+    background-color: $caribbean-current;
+    color: $azure-web;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+}

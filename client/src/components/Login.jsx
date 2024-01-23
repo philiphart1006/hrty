@@ -25,7 +25,8 @@ export default function Login(){
 
   return(
     <>
-      <Form method='POST'>
+      <h1>Login</h1>
+      <Form method='POST' className='authForm'>
         <label form='username'>Username</label>
         <input type='text' id='username' name='username' placeholder='username'/>
         <label form='password'>Password</label>

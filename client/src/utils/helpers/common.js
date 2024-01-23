@@ -14,3 +14,11 @@ export function getToken(){
   console.log('Get token route hit')
   return localStorage.getItem(tokenName)
 }
+
+export function removeToken(){
+  localStorage.removeItem(tokenName)
+  localStorage.removeItem('hrty-username')
+  localStorage.removeItem('hrty-team')
+  localStorage.removeItem('hrty-image')
+  localStorage.removeItem('hrty-id')
+}

@@ -1,5 +1,7 @@
 // * Packages
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { removeToken } from '../utils/helpers/common'
 import {
   Button,
   Menu,
@@ -20,8 +22,13 @@ import logoSq from '../assets/hrt_favi.png'
 const currentUser = localStorage.getItem('hrty-id')
 const currentUserImage = localStorage.getItem('hrty-image')
 
+
 // * Default function
 export default function Header(){
+
+  function handleClick(){
+    removeToken()
+  }
 
   return(
     <header>
@@ -38,7 +45,20 @@ export default function Header(){
           {/* <Link to='/hardwares'>Equipment</Link>
           <Link to='/softwares'>Subscriptions</Link> */}
         </nav>
-        <Link to={`/employees/${currentUser}/`}><img className='team-pic' src={ currentUserImage } alt='profile photo'/></Link>
+        {
+          currentUserImage
+          ?
+          <div className='loggedIn'>
+            <Link to={`/employees/${currentUser}/`}><img className='team-pic' src={ currentUserImage } alt='profile photo'/></Link>
+          <button className ='logoutButton' onClick={handleClick}>
+          <Link to={'/login/'}>Logoff</Link>
+          </button>
+          
+          </div>
+          :
+          <Link to={'/login/'}>Login</Link>
+        }
+        
         <Menu className="header-ham narrow-mode">
         <MenuButton righticon={ChevronDownIcon} className='narrow-mode menu-button'
         px={4}
@@ -54,9 +74,10 @@ export default function Header(){
         <b>Menu</b>
           </MenuButton>
         <MenuList className='menu-list'>
-          <MenuItem>Teams</MenuItem>
-          <MenuItem>Employees</MenuItem>
-          <MenuItem>Reviews</MenuItem>
+          <MenuItem><Link to='/teams'>Teams</Link></MenuItem>
+          <MenuItem><Link to='/employees'>Employees</Link></MenuItem>
+          <MenuItem><Link to='/reviews'>Reviews</Link></MenuItem>
+          <MenuItem><Link to='/reviews'>Reviews</Link></MenuItem>
           {/* <MenuItem>Equipment</MenuItem>
           <MenuItem>Subscriptions</MenuItem> */}
           {/* <MenuItem>Profile</MenuItem> */}

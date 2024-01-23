@@ -80,6 +80,12 @@ a{
   text-decoration: none;
 }
 
+.logoutButton{
+  background-color: $oxford-blue;
+  border: none;
+  margin-right: $standard-padding;
+}
+
 // Set breakpoint for smaller than a landscape table at 768px
 @media only screen and (max-width: 768px) {
   footer {
