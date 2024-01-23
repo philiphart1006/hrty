@@ -23,7 +23,7 @@ export default function AllTeams(){
       teamsAll.map(team => {
         const {id, name, description } = team
         return (
-          <Card className="indContainer" key={id}>
+          <Card className="teamContainer" key={id}>
             <CardHeader>
               <h2>{name}</h2>
             </CardHeader>

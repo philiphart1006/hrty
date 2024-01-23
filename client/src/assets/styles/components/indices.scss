@@ -12,7 +12,56 @@
   width: 80%;
 }
 
-.empContainer{
+.indexFilters{
+  padding: 2*$standard-padding;
+
+  * {
+    margin: 2*$standard-padding;
+    border-radius: 5px;
+  }
+}
+
+.indexContainer{
+  padding: 2*$standard-padding;
+}
+
+.indContainer{
   height: 360px;
-  @include flex(column, space-between)
+  @include flex(column, space-between);
+  border: 1px;
+  border-style: solid;
+  border-color: $indigo-dye;
+  border-radius: 10px
+}
+
+.indPic{
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.modalContent{
+  margin: 82px;
+}
+.modalClose{
+  width: 70vw
+}
+.reviewForm{
+  @include flex(column, space-between);
+  width: 70vw;
+  background-color: $slate-gray;
+  align-self: center;
+
+  *{
+    padding: $standard-padding;
+    margin: $standard-padding;
+    border-radius: 5px;
+  }
+}
+
+.reviewContainer{
+  height: 200px;
+}
+
+ModalBody{
+  width: 50vw
 }

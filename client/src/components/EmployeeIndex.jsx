@@ -43,7 +43,6 @@ export default function AllEmployees(){
   return(
     <section className='displayContainer'>
       <section className='indexFilters'>
-        <h1>Employees</h1>
         <select name='team' value={filters.team} onChange={handleChange}>
           <option value='All'>All</option>
           <option value='HR'>HR</option>
@@ -57,10 +56,10 @@ export default function AllEmployees(){
       { employeesList?.length > 0
       ?
       // Map through and create individual container
-      <SimpleGrid minChildWidth='160px' spacing='40px'>
+      <SimpleGrid minChildWidth='160px' spacing='40px' className='indexContainer'>
       {
       employeesList.map(employee => {
-        const {id, username, first_name, last_name, team, manager } = employee
+        const {id, username, first_name, last_name, team, manager, image } = employee
         const manager_name = manager ? manager.username : "No manager"
         return (
           <Link to = {`${id}`} key={id}>
@@ -69,13 +68,13 @@ export default function AllEmployees(){
                 <p>{first_name} {last_name}</p>
               </CardHeader>
               <CardBody>
-                <img src={hrtLogo} className="indPic" />
+                <img src={image} className="indPic" />
               <p>{username}</p>
               <p>Mgr: {manager_name}</p>
               </CardBody>
               <CardFooter>
-                <Button>Promote</Button>
-                <Button>Fire</Button>
+                {/* <Button>Promote</Button>
+                <Button>Fire</Button> */}
               </CardFooter>
             </Card>
           </Link>

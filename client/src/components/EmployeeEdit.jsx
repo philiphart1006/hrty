@@ -14,16 +14,25 @@ export default function EditEmployee(){
   const employee = employeeTeamArray[0]
   const teams = employeeTeamArray[1]
   const softwares = employeeTeamArray[2]
+  const hardwares = employeeTeamArray[3]
+  console.log(employeeTeamArray)
+  console.log('Hardwares: ',hardwares)
   const res = useActionData()
   const navigate = useNavigate()
   const employeeSoftwares = employee.softwares
+  const employeeHardwares = employee.hardwares
   
   const manager = employee.manager
 
   const employeeSoftwareIds = []
   employeeSoftwares.map(employeeSoftware => {
-    console.log(employeeSoftware)
+    // console.log(employeeSoftware)
     employeeSoftwareIds.push(employeeSoftware.id)
+  })
+  const employeeHardwareIds = []
+  employeeHardwares.map(employeeHardware => {
+    console.log(employeeHardware)
+    employeeHardwareIds.push(employeeHardware.id)
   })
 
   // console.log(manager)
@@ -44,6 +53,7 @@ export default function EditEmployee(){
     manager: employee.manager?.id,
     team: employee.team?.id,
     softwares: employeeSoftwareIds,
+    hardwares: employeeHardwareIds,
     image: employee.ImageUploadField
   })
 
@@ -68,6 +78,15 @@ export default function EditEmployee(){
       index > -1 && formData.softwares.splice(index, 1)
     } 
   }
+
+  function hardwareChange(e){
+    if(e.target.checked){
+      formData.hardwares.push(e.target.value)
+    } else{
+      const index = formData.hardwares.indexOf(e.target.value)
+      index > -1 && formData.hardwares.splice(index, 1)
+    } 
+  }
   // ! To here
 
   // * Handle submission
@@ -77,7 +96,7 @@ export default function EditEmployee(){
       e.preventDefault()
       const response = await updateEmployee(formData, employee.id)
       console.log(response.data)
-      res?.status == 201 && navigate(`/employees/${employee.id}`)
+      res?.status == 200 && navigate(`/employees/${employee.id}`)
     } catch (error) {
       console.log(error)
     }
@@ -85,7 +104,8 @@ export default function EditEmployee(){
 
   // & JSX
   return(
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit} className="formContainer">
+    <div className = 'formLHS'>
     <label form='first_name'>First name:</label>
     <input type='text' name='first_name' placeholder='first_name' onChange={handleChange} defaultValue={employee.first_name}/>
 
@@ -121,7 +141,9 @@ export default function EditEmployee(){
     })
     }
     </select>
+    </div>
 
+    <div className="formMid">
     <label form='softwares'>Softwares:</label>
     {softwares.map(software => {
       const {id, name} = software
@@ -133,15 +155,31 @@ export default function EditEmployee(){
       )
     })
     }
+    </div>
+
+    <div className="formRHS">
+
+    <label form='hardwares'>Hardwares:</label>
+    {hardwares.map(hardware => {
+      const {id, name, type} = hardware
+      return(
+        <div key={id}>
+          <label>{name} - {type}</label>
+          <input type="checkbox" id={id} name={id} value={id} defaultChecked={employeeHardwareIds.includes(id)} onChange={hardwareChange}></input>
+        </div>
+      )
+    })
+    }
 
     {/* Image upload here */}
     <div>
-      <label form='imageUpload'>Image Upload:</label>
+      <label form='imageUpload'>Image Upload: </label>
       <ImageUploadField setFormData={setFormData} formData={formData} onChange={handleChange} />
     </div>
 
     <button type='submit'>Save</button>
     {res && <p>{res.data.message}</p>}
+    </div>
   </form>
   )
 }

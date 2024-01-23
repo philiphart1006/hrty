@@ -4,6 +4,16 @@ import { useLoaderData, Link } from "react-router-dom"
 import { Card, CardHeader, CardBody, CardFooter, Button, SimpleGrid } from '@chakra-ui/react'
 import { useState, useEffect } from "react"
 import { Form } from "react-router-dom"
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react'
+import { useDisclosure } from "@chakra-ui/react"
 
 // * Styling & Images
 import hrtLogo from '../assets/hrt_favi.png'
@@ -15,6 +25,31 @@ export default function AllReviews(){
   console.log(reviewsData)
   let reviewsAll = reviewsData[0]
   let employeesAll = reviewsData[1]
+
+  // * Sort reviews by quarter then year:
+  function compare( a, b ) {
+    if ( a.quarter > b.quarter ){
+      return -1;
+    }
+    if ( a.quarter < b.quarter ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  const reviews_sorted = reviewsAll.sort( compare );
+
+  function compareYear( a, b ) {
+    if ( a.year > b.year ){
+      return -1;
+    }
+    if ( a.year < b.year ){
+      return 1;
+    }
+    return 0;
+  }
+  
+  const reviews_ordered = reviews_sorted.sort( compareYear );
 
   // * Get current user ID from localStorage
   const currentUser = localStorage.getItem('hrty-id')
@@ -30,11 +65,11 @@ export default function AllReviews(){
   useEffect(() => {
     const pattern = new RegExp(filters.search, 'i')
     const pattern2 = new RegExp(filters.quarter, 'i')
-    const filteredArr = reviewsAll.filter(review => {
+    const filteredArr = reviews_ordered.filter(review => {
       return pattern.test(review.employee.username) && pattern2.test(review?.quarter) ||  filters.quarter ==='All'
     })
     setReviewsList(filteredArr)
-  }, [reviewsAll, filters.search, filters.quarter])
+  }, [reviews_ordered, filters.search, filters.quarter])
 
   // * Change handle function
   function handleChange(e){
@@ -51,16 +86,32 @@ export default function AllReviews(){
   const currentMonth = currentDate.getMonth()
   const currentQuarter = Math.floor((currentMonth + 3) / 3);
   
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   // * JSX
   return(
     <section className='displayContainer'>
-      <section className='newReview'>
-        <Form method="post">
+
+
+      {/* ! Modal here */}
+      <Button onClick={onOpen}>Click here to submit a review</Button>
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent className='modalContent'>
+          {/* <ModalHeader>Leave a review</ModalHeader> */}
+          <ModalCloseButton className='modalClose'/>
+          <ModalBody>
+          <section className='newReview'>
+        <Form method="post" className="reviewForm">
           <label hidden htmlFor='value'>Leave a review</label>
+          <label form='year'>Year:</label>
           <input type='number' name='year' defaultValue={currentYear} placeholder={currentYear} />
+          <label form='quarter'>Quarter:</label>
           <input type='number' name='quarter' defaultValue={currentQuarter} placeholder={currentQuarter} />
+          <label form='rating'>Rating (/5):</label>
           <input type='number' name='rating' min={1} max={5}/>
+          <label form='summary'>Summary:</label>
           <input type='text' name='summary' />
           {/* <input type='text' name='owner' value={currentUser ? currentUser : 3} hidden readOnly /> */}
           <label form='employee'>Employee:</label>
@@ -76,6 +127,18 @@ export default function AllReviews(){
           <button className='btn' type='submit'>Submit review</button>
         </Form>
       </section>
+          </ModalBody>
+
+          {/* <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost'>Secondary Action</Button>
+          </ModalFooter> */}
+        </ModalContent>
+      </Modal>
+
+      
       <section className='indexFilters'>
         <h1>Quarterly Performance Reviews</h1>
         <select name='quarter' value={filters.quarter} onChange={handleChange}>
@@ -97,8 +160,8 @@ export default function AllReviews(){
         const {id, employee, owner, quarter, year, summary } = review
         const { username, first_name, last_name } = employee
         return (
-          <Link to = {`${id}`} key={id}>
-            <Card className="indContainer">
+          <Link to = {`/employees/${employee.id}`} key={id}>
+            <Card className="indContainer reviewContainer">
               <CardHeader>
                 <p>{first_name} {last_name} - C{quarter} ({year})</p>
               </CardHeader>

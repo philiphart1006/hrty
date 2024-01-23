@@ -11,7 +11,7 @@ import {
   MenuOptionGroup,
   MenuDivider,
 } from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 // * Styling & Images
 import logoSq from '../assets/hrt_favi.png'
@@ -35,21 +35,31 @@ export default function Header(){
           <Link to='/teams'>Teams</Link>
           <Link to='/employees'>Employees</Link>
           <Link to='/reviews'>Reviews</Link>
-          <Link to='/hardwares'>Equipment</Link>
-          <Link to='/softwares'>Subscriptions</Link>
+          {/* <Link to='/hardwares'>Equipment</Link>
+          <Link to='/softwares'>Subscriptions</Link> */}
         </nav>
         <Link to={`/employees/${currentUser}/`}><img className='team-pic' src={ currentUserImage } alt='profile photo'/></Link>
         <Menu className="header-ham narrow-mode">
-        <MenuButton righticon={ChevronDownIcon} className='narrow-mode'>
-          Menu
-        </MenuButton>
-        <MenuList>
+        <MenuButton righticon={ChevronDownIcon} className='narrow-mode menu-button'
+        px={4}
+        py={2}
+        transition='all 0.2s'
+        borderRadius='md'
+        borderWidth='1px'
+        _hover={{ bg: 'gray.400' }}
+        _expanded={{ bg: 'blue.400' }}
+        _focus={{ boxShadow: 'outline' }}
+        zIndex="dropdown"
+        icon={<HamburgerIcon />}>
+        <b>Menu</b>
+          </MenuButton>
+        <MenuList className='menu-list'>
           <MenuItem>Teams</MenuItem>
           <MenuItem>Employees</MenuItem>
           <MenuItem>Reviews</MenuItem>
-          <MenuItem>Equipment</MenuItem>
-          <MenuItem>Subscriptions</MenuItem>
-          <MenuItem>Profile</MenuItem>
+          {/* <MenuItem>Equipment</MenuItem>
+          <MenuItem>Subscriptions</MenuItem> */}
+          {/* <MenuItem>Profile</MenuItem> */}
         </MenuList>
       </Menu>
       </div>

@@ -1,0 +1,28 @@
+.formContainer{
+  @include flex(row, space-around);
+
+  .formLHS, .formRHS{
+    @include flex(column, space-around)
+  }
+
+
+  *width: 30%;
+}
+
+.imageUpload{
+  max-height: 160px;
+  max-width: 160px;
+}
+
+@media only screen and (max-width: 768px) {
+  .formContainer {
+    @include flex(column, space-around);
+    // max-height: 100vh;
+
+    .formLHS, .formMid, .formRHS {
+      align-self: center;
+      width: 80vw;
+      padding-bottom: 3*$standard-padding
+    }
+  }
+}

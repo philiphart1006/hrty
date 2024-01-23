@@ -13,10 +13,11 @@ export async function getSingleEmployee(id){
 }
 
 export async function getSingleEditEmployee(id){
-  const [employees, teams,softwares ] = await Promise.all([
+  const [employees, teams,softwares, hardwares ] = await Promise.all([
     await fetch(`/api/employees/${id}/`).then((response) => response.json()),
     await fetch('/api/teams/').then((response) => response.json()),
-    await fetch('/api/softwares/').then((response) => response.json())
+    await fetch('/api/softwares/').then((response) => response.json()),
+    await fetch('/api/hardwares/').then((response) => response.json())
   ])
-  return [employees,teams,softwares]
+  return [employees,teams,softwares, hardwares]
 }

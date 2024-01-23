@@ -6,13 +6,14 @@ import { Link as ChakraLink } from '@chakra-ui/react'
 
 // * Styling & Images
 import empImage from '../assets/hrt_favi.png'
+import star from '../assets/1366.ico'
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Card, SimpleGrid, chakra } from "@chakra-ui/react"
 
 // * Default function
 export default function EmployeeSingle(){
 
   const employee = useLoaderData()
-  const { id, username, first_name, last_name, team, manager, status, join_date, softwares, reviews_received, hardwares } = employee
+  const { id, username, first_name, last_name, team, manager, status, join_date, softwares, reviews_received, hardwares, image } = employee
   const manager_name = manager ? manager.username : "No manager"
 
   // * Sort reviews by quarter then year:
@@ -44,7 +45,7 @@ export default function EmployeeSingle(){
     <section className='employeeSingle'>
         <section className='employeeuLHS'>
           <div className="employeeBioLHS">
-            <img className='employeePicLarge' src={empImage}/>
+            <img className='employeePicLarge' src={image}/>
             <div className='employeeButtons'>
               <ChakraLink as={Link} to={`/employees/${id}/edit`}><button type='button'>Edit</button></ChakraLink>
               <Form
@@ -82,7 +83,7 @@ export default function EmployeeSingle(){
           return(
             <div className='softwareContainer' key={software.name}>
               <p>{software.name}</p>
-              <p>{software.licence_cost}</p>
+              <p>£{software.licence_cost}pcm</p>
             </div>
           )
         })
@@ -92,14 +93,21 @@ export default function EmployeeSingle(){
         <section className='employeelLHS'>
           {/* Employee reviews go here; use Chakra element */}
           <h1> Employee Reviews</h1>
-          <Accordion>
+          <Accordion allowToggle>
             {reviews_ordered.map(review => {
             return(
               <AccordionItem className='softwareContainer' key={review.id}>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex='1' textAlign='left'>
-                    C{review.quarter} - {review.year}: {review.rating}/5
+                    <Box as="span" flex='1' textAlign='left' className='reviewHeader'>
+                    C{review.quarter} - {review.year} : 
+                    {/* <div className='visual-rating'> */}
+                      {review.rating > 0 && <img className='rating-star' src={star} alt='star'/>}
+                      {review.rating > 1 && <img className='rating-star' src={star} alt='star'/>}
+                      {review.rating > 2 && <img className='rating-star' src={star} alt='star'/>}
+                      {review.rating > 3 && <img className='rating-star' src={star} alt='star'/>}
+                      {review.rating > 4 && <img className='rating-star' src={star} alt='star'/>}
+                    {/* </div> */}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>

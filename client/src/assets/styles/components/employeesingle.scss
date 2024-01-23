@@ -1,28 +1,67 @@
 .employeeSingle{
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template: 1fr 1fr / 2fr 1fr;
   width: calc(100vw - 8*$standard-padding);
   height: calc(100vh - 21*$standard-padding);
   padding: 2*$standard-padding;
   *{
-    width: 100%
+    width: 100%;
+    color: $oxford-blue;
+    // margin: $standard-padding;
+    border-radius: 10px;
   }
 }
 
 .employeeuLHS{
   @include flex(row, space-between);
   *{
-    width: 50%;
+    width: calc(50% - 2*$standard-padding);
     text-align: center;
   }
   img{
-    max-height: 150px;
-    max-width: 150px;
+    max-height: 200px;
+    max-width: 200px;
     align-self: center;
     justify-self: center;
+    margin: $standard-padding
+  }
+  background-color: $slate-gray;
+  margin-bottom: 3*$standard-padding;
+
+  .employeeBioLHS{
+    @include flex(column, space-around);
+
+    .employeeButtons{
+      @include flex(row, space-around);
+      align-self: center;
+      *{
+        width: 150px;
+      }
+    }
   }
 }
 
 .employeelLHS{
   background-color: $slate-gray;
+  padding: $standard-padding;
+  width: calc(100% - 2*$standard-padding);
+  height: calc(100% - 5*$standard-padding);
+
+  .reviewHeader{
+    text-align: center;
+  }
+}
+
+.employeeuRHS, .employeelRHS{
+  background-color: $caribbean-current;
+  margin-left: 3*$standard-padding;
+  margin-bottom: 3*$standard-padding;
+  border-radius: 10px;;
+  padding: $standard-padding;
+  width: calc(100% - 2*$standard-padding)
+}
+
+.rating-star{
+  height: 2*$standard-padding;
+  width: 2*$standard-padding;
 }

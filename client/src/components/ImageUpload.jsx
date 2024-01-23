@@ -22,9 +22,9 @@ export default function ImageUploadField({ formData, setFormData }){
   return (
     <>
       {formData.image ?
-      <img src = {formData.image} alt="Image"/>
+      <img src = {formData.image} className='imageUpload' alt="Image"/>
       :
-      <input type='file' name='image' onChange={handleImageUpload} />
+      <input type='file' name='image' className='imageUpload' onChange={handleImageUpload} />
       }
     </>
   )

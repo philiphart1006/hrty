@@ -35,6 +35,18 @@ header {
     }
   }
 
+  .menu-button{
+    border-radius: 4px;
+    height: 5*$standard-padding;
+    // width: 5*$standard-padding;
+    background-color: $vivid-sky-blue;
+    color: $mantis;
+  }
+
+  .menu-list{
+    @include flex(column, justify-content)
+  }
+
   img {
     border-radius: 40px;
   }
@@ -49,6 +61,14 @@ footer {
 }
 .narrow-mode{
   display: none !important;
+}
+
+.footerLHS{
+  @include flex (row, space-around);
+  align-items: center;
+  .bug-logo{
+    margin-right: $standard-padding;
+  }
 }
 
 .footerRHS{
