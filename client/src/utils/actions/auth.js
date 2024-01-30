@@ -24,14 +24,8 @@ export async function deleteEmployee(id){
 }
 
 export async function updateEmployee(data, id){
-  // console.log('Update employee route reached')
-  // console.log('Data for employee update: ',data)
-  // const dataObject = Object(data)
-  // await axios.patch(`/api/employees/${id}/`, data, {
-  //   validateStatus: () => true,
-  // })
   await axios.patch(`/api/employees/${id}/edit/`, data, {
     validateStatus: () => true,
   })
-  return redirect(`employees/${id}`)
+  return redirect(`employees/${id}/`)
 }

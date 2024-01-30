@@ -68,9 +68,7 @@ export default function EditEmployee(){
   }
 
 
-  // ! Check from here
   function softwareChange(e){
-    // e.target.checked ? formData.softwares.push(e.target.value) : formData.softwares.remove(e.target.value)
     if(e.target.checked){
       formData.softwares.push(e.target.value)
     } else{
@@ -87,7 +85,6 @@ export default function EditEmployee(){
       index > -1 && formData.hardwares.splice(index, 1)
     } 
   }
-  // ! To here
 
   // * Handle submission
   async function handleSubmit(e){
