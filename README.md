@@ -90,7 +90,7 @@ This project was undertaken solo over the course of 7 working days. Owing to unf
 
 ### ERD
 
-Salesforce is also a relational database and so the ERD would look fairly similar. Whereas in Salesforce, I had join objects such as a _login _between employee & _software _to show active/inactive logins, for the scope of this product, I simply stuck to many-to-many relationships here.
+Salesforce is also a relational database and so the ERD would look fairly similar. Whereas in Salesforce, I had junction objects such as a _login _between employee & _software _to show active/inactive logins, for the scope of this product, I simply stuck to many-to-many relationships here.
 
 ![ERDt](images/image15.png "image_tooltip")
 
@@ -123,14 +123,14 @@ For this project, I really wanted to focus on it being mobile responsive so incl
 ## Build/Code Process
 
 
-#### Day 1 (Thursday 11th)
+#### Day 1
 
 
 
 * Brainstorming/planning as above
 
 
-#### Day 2 (Monday 15th)
+#### Day 2
 
 
 
@@ -147,7 +147,7 @@ For this project, I really wanted to focus on it being mobile responsive so incl
 
 
 
-#### Day 3 (Tuesday 16th)
+#### Day 3
 
 
 
@@ -155,14 +155,14 @@ For this project, I really wanted to focus on it being mobile responsive so incl
 * FE: added employee index (see “Wins - Employee Index page”), employee single page, & register/login
 
 
-#### Day 4 (Wednesday 17th)
+#### Day 4
 
 
 
 * FE: added login page, delete employee, & started employee edit page
 
 
-#### Day 5 (Thursday 18th)
+#### Day 5
 
 
 
@@ -170,7 +170,7 @@ For this project, I really wanted to focus on it being mobile responsive so incl
 * BE: Added new app for Hardwares
 
 
-#### Day 6 (Friday 19th)
+#### Day 6
 
 
 
@@ -181,7 +181,7 @@ For this project, I really wanted to focus on it being mobile responsive so incl
     * Transferred .env variables to Heroku configuration
 
 
-#### Day 7 (Tuesday 23rd)
+#### Day 7
 
 
 
@@ -281,7 +281,7 @@ When updating many-to-many relationships such as softwares, it was important to 
 
 #### Loading times
 
-When switching between different React components and executing various loader/action functions, the loading times are noticeable slow (over 5 seconds at times). This is a combination of a number of factors:
+When switching between different React components and executing various loader/action functions, the loading times are noticeably slow (over 5 seconds at times). This is a combination of a number of factors:
 
 
 
@@ -345,7 +345,7 @@ Saving these variables to local storage required them to each be removed individ
 
 #### Unresolved bugs
 
-While most were resolved before final presentation, a couple persist. The primary one I would look at resolving is the redirect on editing an employee.
+While most were resolved before the final presentation, a couple persisted. The primary one I would look at resolving is the redirect on editing an employee.
 
 I have two redirects currently:
 
